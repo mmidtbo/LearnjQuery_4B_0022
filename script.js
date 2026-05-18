@@ -1,28 +1,20 @@
-const inputNama = document.getElementById("inputNama");
-const inputEmail = document.getElementById("inputEmail");
-const inputNim = document.getElementById("inputNIM");
-const btn = document.getElementById("btnSubmit");
+const $inputNama = $("#inputNama");
+const $inputEmail = $("#inputEmail");
+const $inputNim = $("#inputNIM");
+const $btn = $("#btnSubmit");
 
-const result = document.getElementById("results");
+const $result = $("#results");
 
-btn.addEventListener("click", function () {
-  let newNama = inputNama.value;
-  let newEmail = inputEmail.value;
-  let newNim = inputNim.value;
+$btn.on("click", function () {
+  let newNama = $inputNama.val();
+  let newEmail = $inputEmail.val();
+  let newNim = $inputNim.val();
 
-  let pNama = document.createElement("p");
-  pNama.innerHTML = newNama;
-  pNama.className = "nama";
+  let $pNama = $("<p>").addClass("nama").text(newNama);
+  let $pEmail = $("<p>").addClass("email").text(newEmail);
+  let $pNIM = $("<p>").addClass("nim").text(newNim);
 
-  let pEmail = document.createElement("p");
-  pEmail.innerHTML = newEmail;
-  pEmail.className = "email";
-
-  let pNIM = document.createElement("p");
-  pNIM.innerHTML = newNim;
-  pNIM.className = "nim";
-
-  result.appendChild(pNama);
-  result.appendChild(pEmail);
-  result.appendChild(pNIM);
+  $result.append($pNama);
+  $result.append($pEmail);
+  $result.append($pNIM);
 });
